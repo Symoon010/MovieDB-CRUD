@@ -40,50 +40,52 @@
 
     <!-- Main content -->
     <div class="container">
-      <form action="add-movie"  method="POST" >
+      <form action="add-movie" id="form"  method="POST"  >
         <div class="form-group">
           <div class="form-control-">
             <label for="movie-name">Movie Name</label>
-            <input id="movie-name" onkeyup="validateName()" name="name" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie name"/>
+            <input id="movie-name" name="name" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie name"/>
             <small id="name-error"></small>
           </div>
 
           <div class="form-control-">
             <label for="movie-category">Movie Category</label>
             <select id="movie-category" name="category" class="form-control">
+             <option selected>Select Category</option>
               <option>Action</option>
               <option>Drama</option>
               <option>Comedy</option>
             </select>
-<!--            <small id="category-error">Movie Category is Required</small>-->
+            <small id="category-error"></small>
           </div>
 
           <div class="form-control-">
             <label for="movie-id">Movie ID</label>
             <input id="movie-id" name="movieId" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Id"/>
-<!--            <small id="id-error">Movie ID is Required</small>-->
+            <small id="id-error"></small>
           </div>
 
           <div class="form-control-">
             <label for="movie-rating">Movie Rating</label>
             <input id="movie-rating" name="rating" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Rating"/>
-<!--            <small id="rating-error">Movie Rating is Required</small>-->
+            <small id="rating-error"></small>
           </div>
 
           <div class="form-control-">
             <label for="movie-language">Movie Language</label>
             <select id="movie-language" name="language" class="form-control">
+              <option selected>Select Language</option>
               <option>English</option>
               <option>Hindi</option>
               <option>Bangla</option>
             </select>
-<!--            <small id="language-error">Movie Language is Required</small>-->
+            <small id="language-error"></small>
           </div>
 
         </div>
-        <button onclick="return checkValidation()" type="submit" class="btn btn-primary">Add</button>
+        <button type="submit" class="btn btn-primary">Add</button>
         <a th:href="@{/index}" class="btn btn-success">Go back to Home</a>
-        <small id="submit-error">Movie Language is Required</small>-->
+        <small id="submit-error"></small>-->
 
       </form>
     </div>
