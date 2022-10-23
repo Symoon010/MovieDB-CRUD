@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header.html::header">Replacable Navigation</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+  <!-- Preloader -->
+
+  <!-- Navbar -->
+  <nav th:replace="fragments/navbar.html::navbar">Replacable Navigation</nav>
+  <!-- /.navbar -->
+
+  <!-- Main Sidebar Container -->
+  <aside th:replace="fragments/sidebar.html::sidebar">Replacable Navigation</aside>
+
+<!--   Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Main content -->
+    <div class="container">
+      <h1>Movie Detail of <span th:text="${movie.name}" th:remove="tag" ></span></h1>
+      <br>
+      <ul>
+        <li th:text="${'Movie Name: ' + movie.name}">Name</li>
+        <li th:text="${'Category: ' + movie.category}">Category</li>
+        <li th:text="${'Movie ID: ' + movie.movieId}">MovieId</li>
+        <li th:text="${'Rating: ' + movie.rating}">Rating</li>
+        <li th:text="${'Language: ' + movie.language}">Language</li>
+      </ul>
+<!--      th:href=" @{/movie-detail(id=${movie.id}) }"-->
+<!--      th:text="${iterStat.count + '.' + '  ' + movie.name}"-->
+<!--      class="list-group-item list-group-item-action"> &lt;!&ndash; http://localhost:8080/movie?id=1 &ndash;&gt;-->
+      <a th:href="@{'/delete/' + ${movie.id}}" class="btn btn-danger">Delete</a>
+      <a th:href="@{/update-movie(id=${movie.id})}" class= "btn btn-info" >Update</a>
+    </div> <!-- container div ends -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+</div>
+<!-- ./wrapper -->
+</body>
+</html>
+
+
+
+<!--<!doctype html>-->
+<!--<html xmlns:th="http://www.thymeleaf.org">-->
+<!--<head th:replace="fragments/general.html::header (title='Home')" >This is repalcable header</head>-->
+<!--<nav th:replace="fragments/nav.html::nav">Replacable Navigation</nav>-->
+
+<!--<body>-->
+<!--<div class="container">-->
+<!--  <h1>Movie Detail of <span th:text="${movie.name}" th:remove="tag" ></span></h1>-->
+<!--  <br>-->
+<!--  <ul>-->
+<!--    <li th:text="${'Name: ' + movie.name}">Id</li>-->
+<!--    <li th:text="${'Category: ' + movie.category}">Category</li>-->
+<!--    <li th:text="${'Id: ' + movie.movieId}">Id</li>-->
+<!--    <li th:text="${'Rating: ' + movie.rating}">Id</li>-->
+<!--    <li th:text="${'Description: ' + movie.description}">Description</li>-->
+<!--  </ul>-->
+<!--  <a th:href="@{'/delete/' + ${id}}" class="btn btn-danger">Delete</a>-->
+<!--  <a th:href="@{'/update-movie/' + ${id}}" class="btn btn-info" >Update</a>-->
+<!--</div> &lt;!&ndash; container div ends &ndash;&gt;-->
+
+<!--</body>-->
+<!--</html>-->

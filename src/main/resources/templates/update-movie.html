@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="fragments/header.html::header">Replacable Navigation</head>
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+    <!-- Preloader -->
+    <div th:replace="fragments/placeholder.html::placeholder">Replacable Navigation</div>
+
+    <!-- Navbar -->
+    <nav th:replace="fragments/navbar.html::navbar">Replacable Navigation</nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside th:replace="fragments/sidebar.html::sidebar">Replacable Navigation</aside>
+
+    <div class="content-wrapper">
+        <!-- Content Header (Page header) -->
+        <div class="content-header">
+            <div class="container-fluid">
+                <div class="row mb-2">
+                    <div class="col-sm-6">
+                        <h1 class="m-0">Update Movie</h1>
+                    </div><!-- /.col -->
+                    <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item"><a th:href="@{/index}">Home</a></li>
+                            <li class="breadcrumb-item active">Update Movie</li>
+                        </ol>
+                    </div><!-- /.col -->
+                </div><!-- /.row -->
+            </div><!-- /.container-fluid -->
+        </div>
+
+        <!-- Main content -->
+        <div class="container">
+
+            <form th:action="@{'/update-movie/'+ ${movie.id}}"  th:object="${movie}" method="POST" >
+                <div class="form-group">
+                    <label for="movie-name">Movie Name</label>
+                    <input id="movie-name" th:value="${movie.name}" name="name"  type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp"  placeholder="Enter movie name" text="${movie.name}"/>
+                    <label for="movie-category">Movie Category</label>
+                    <input id="movie-category" th:value="${movie.category}" name="category" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Category"/>
+                    <label for="movie-id">Movie ID</label>
+                    <input id="movie-id"th:value="${movie.movieId}" name="movieId" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Id"/>
+                    <label for="movie-rating">Movie Rating</label>
+                    <input id="movie-rating" th:value="${movie.rating}"  name="rating" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Rating"/>
+                    <label for="movie-language">Language</label>
+                    <input id="movie-language" th:value="${movie.language}" name="language" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Language"/>
+                </div>
+                <button onclick="updateMovie()" type="submit" class="btn btn-primary">Update</button>
+                <a th:href="@{/index}" class="btn btn-success">Go back to Home</a>
+            </form>
+
+        </div>
+        <aside class="control-sidebar control-sidebar-dark">
+            <!-- Control sidebar content goes here -->
+        </aside>
+        <!-- /.control-sidebar -->
+    </div>
+</div>
+<footer th:replace="fragments/footer.html::footer">Replacable Navigation</footer>
+</body>
+</html>

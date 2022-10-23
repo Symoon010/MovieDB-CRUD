@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+
+<head th:replace="fragments/header.html::header">Replacable Navigation</head>
+
+
+<body class="hold-transition sidebar-mini layout-fixed">
+
+<div class="wrapper">
+  <!-- Preloader -->
+  <div th:replace="fragments/placeholder.html::placeholder">Replacable Navigation</div>
+
+  <!-- Navbar -->
+  <nav th:replace="fragments/navbar.html::navbar">Replacable Navigation</nav>
+
+  <!-- Main Sidebar Container -->
+  <aside th:replace="fragments/sidebar.html::sidebar">Replacable Navigation</aside>
+
+  <!-- Main Sidebar Container -->
+
+  <!-- Content Wrapper. Contains page content -->
+  <div class="content-wrapper">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+      <div class="container-fluid">
+        <div class="row mb-2">
+          <div class="col-sm-6">
+            <h1 class="m-0">Add Movie</h1>
+          </div><!-- /.col -->
+          <div class="col-sm-6">
+            <ol class="breadcrumb float-sm-right">
+              <li class="breadcrumb-item"><a th:href="@{/index}">Home</a></li>
+              <li class="breadcrumb-item active">Add Movie</li>
+            </ol>
+          </div><!-- /.col -->
+        </div><!-- /.row -->
+      </div><!-- /.container-fluid -->
+    </div>
+
+    <!-- Main content -->
+    <div class="container">
+      <form action="add-movie"  method="POST" >
+        <div class="form-group">
+          <div class="form-control-">
+            <label for="movie-name">Movie Name</label>
+            <input id="movie-name" onkeyup="validateName()" name="name" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie name"/>
+            <small id="name-error"></small>
+          </div>
+
+          <div class="form-control-">
+            <label for="movie-category">Movie Category</label>
+            <select id="movie-category" name="category" class="form-control">
+              <option>Action</option>
+              <option>Drama</option>
+              <option>Comedy</option>
+            </select>
+<!--            <small id="category-error">Movie Category is Required</small>-->
+          </div>
+
+          <div class="form-control-">
+            <label for="movie-id">Movie ID</label>
+            <input id="movie-id" name="movieId" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Id"/>
+<!--            <small id="id-error">Movie ID is Required</small>-->
+          </div>
+
+          <div class="form-control-">
+            <label for="movie-rating">Movie Rating</label>
+            <input id="movie-rating" name="rating" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Rating"/>
+<!--            <small id="rating-error">Movie Rating is Required</small>-->
+          </div>
+
+          <div class="form-control-">
+            <label for="movie-language">Movie Language</label>
+            <select id="movie-language" name="language" class="form-control">
+              <option>English</option>
+              <option>Hindi</option>
+              <option>Bangla</option>
+            </select>
+<!--            <small id="language-error">Movie Language is Required</small>-->
+          </div>
+
+        </div>
+        <button onclick="return checkValidation()" type="submit" class="btn btn-primary">Add</button>
+        <a th:href="@{/index}" class="btn btn-success">Go back to Home</a>
+        <small id="submit-error">Movie Language is Required</small>-->
+
+      </form>
+    </div>
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
+  </div>
+</div>
+<!-- ./wrapper -->
+<footer th:replace="fragments/footer.html::footer">Replacable Navigation</footer>
+</body>
+</html>
