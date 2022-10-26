@@ -8,6 +8,7 @@ import com.moviedbcrud.repository.MovieRepository;
 import com.moviedbcrud.service.MovieService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.stereotype.Controller;
@@ -37,7 +38,6 @@ public class HomeController {
         else{
             return "redirect:/login";
         }
-
     }
     @GetMapping("/sign-up")
     public  String getSignUp(){
@@ -63,21 +63,25 @@ public class HomeController {
     }
 
     @GetMapping("/list-movie")
-    public  String listMovie(Model model,@PageableDefault(size = 4) Pageable pageable){
-
+    public  String listMovie(Model model,@PageableDefault(size = 5) Pageable pageable){
+          ModelAndView modelAndView = new ModelAndView();
+          modelAndView.setViewName("movie-update-modal");
           Page page = movieService.findPages(pageable);
           model.addAttribute("data",page);
           return  "list-movie";
     }
-    @GetMapping("/action-movies")
-    public  String actionMovieList(Model model,@PageableDefault(size = 4) Pageable pageable){
-        Page page = movieService.findActionMoviePages(pageable);
-        model.addAttribute("data",page);
-        return  "action_movies";
+    @GetMapping("/action-movie")
+    public  ModelAndView actionMovieList(Model model){
+        List<Movie>movieList = movieService.getMovieByCategory("Action");
+        ModelAndView modelAndView= new ModelAndView();
+        modelAndView.setViewName("action-movies.html");
+        modelAndView.addObject("data",movieList);
+        return   modelAndView;
     }
+
     @GetMapping("/comedy-movies")
     public  ModelAndView comedyMovieList(@ModelAttribute MovieEntity movieEntity){
-        List<Movie>movieList = movieService.getComedyMovies();
+        List<Movie>movieList = movieService.getMovieByCategory("Comedy");
         ModelAndView modelAndView= new ModelAndView();
         modelAndView.setViewName("comedy-movie.html");
         modelAndView.addObject("data",movieList);
@@ -91,8 +95,6 @@ public class HomeController {
         modelAndView.addObject("data",movieList);
         return   modelAndView;
     }
-
-
     @GetMapping("/add-movie")
     public  String addMovie(){
         return "add-movie.html";
@@ -107,7 +109,7 @@ public class HomeController {
     @GetMapping("/update-movie")
     public ModelAndView getUpdateMoviePage(@RequestParam int id){
         ModelAndView modelAndView = new ModelAndView();
-        modelAndView.setViewName("update-movie.html");
+        modelAndView.setViewName("update-modal.html");
         modelAndView.addObject("id", id);
         modelAndView.addObject("movie", movieService.getByID(id));
         return modelAndView;
@@ -115,14 +117,23 @@ public class HomeController {
     @PostMapping("/update-movie/{id}")
     public String updateMoviePage(@ModelAttribute MovieEntity movie){
         movieService.movieUpdateToDb(movie);
-        return "redirect:/list-movie";
+        String category = movie.getCategory();
+        if(category.equals("Action")){
+            return "redirect:/action-movie";
+        }
+        else if(category.equals("Comedy")){
+            return "redirect:/comedy-movies";
+        }
+        else if(category.equals("English")){
+            return "redirect:/english-movies";
+        }
+       else{
+            return "redirect:/list-movie";
+        }
     }
-
     @GetMapping("/delete/{id}")
     public String deleteMoviePage(@PathVariable(name = "id") int id){
         movieService.deleteFromDb(id);
         return "redirect:/list-movie";
     }
-
-
 }

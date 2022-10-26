@@ -1,0 +1,57 @@
+
+        <!-- Button trigger modal -->
+        <!-- Button trigger modal -->
+
+        <!-- Modal -->
+        <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLongTitle">Update Movie</h5>
+                        <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container">
+                            <form  th:action="@{'/update-movie/'+ ${movie.id}}"  th:object="${movie}" method="POST" >
+                                <div class="form-group">
+                                    <div class="form-control-">
+                                        <label for="movie-name">Movie Name</label>
+                                        <input id="movie-name" th:value="${movie.name}" name="name"  type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp"  placeholder="Enter movie name" text="${movie.name}"/>
+                                        <small id="name-error"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="movie-category">Movie Category</label>
+                                        <input id="movie-category" th:value="${movie.category}" name="category" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Category"/>
+                                        <small id="category-error"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="movie-id">Movie ID</label>
+                                        <input id="movie-id"th:value="${movie.movieId}" name="movieId" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Id"/>
+                                        <small id="id-error"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="movie-rating">Movie Rating</label>
+                                        <input id="movie-rating" th:value="${movie.rating}"  name="rating" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Rating"/>
+                                        <small id="rating-error"></small>
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="movie-language">Language</label>
+                                        <input id="movie-language" th:value="${movie.language}" name="language" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Language"/>
+                                        <small id="language-error"></small>
+                                    </div>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Update</button>
+                                <a th:href="@{/index}" class="btn btn-success">Go back to Home</a>
+                            </form>
+                        </div>
+                    </div>
+<!--                    <div class="modal-footer">-->
+<!--                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
+<!--                        <button type="button" class="btn btn-primary">Save changes</button>-->
+<!--                    </div>-->
+                </div>
+            </div>
+        </div>
+

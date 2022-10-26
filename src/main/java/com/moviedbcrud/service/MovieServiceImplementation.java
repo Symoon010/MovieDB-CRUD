@@ -25,8 +25,7 @@ public class MovieServiceImplementation implements MovieService {
     private AdminRepository adminRepository;
     @Autowired
     private MovieRepository movieRepository;
-    @Autowired
-    private ModelMapper modelMapper;
+
 
     @Override
     public  boolean checkAuthentication(Admin admin){
@@ -73,6 +72,20 @@ public class MovieServiceImplementation implements MovieService {
         return movies;
     }
     @Override
+    public List<Movie> getMovieByCategory(String category){
+        List<Movie>movies = new ArrayList<>();
+        try{
+            List<MovieEntity>movieEntities = movieRepository.getMovieByCategory(category);
+            for(MovieEntity movieEntity:movieEntities){
+                movies.add(movieListEntityToDto(movieEntity));
+            }
+        }
+        catch (Exception exception){
+            exception.printStackTrace();
+        }
+        return movies;
+    }
+    @Override
     public List<Movie> getEnglishMovies(){
         List<Movie>movies = new ArrayList<>();
         try{
@@ -90,9 +103,9 @@ public class MovieServiceImplementation implements MovieService {
 
     @Override
     public Page findPages(Pageable pageable){
-
            return movieRepository.findAll(pageable);
     }
+
 
     @Override
     public Long getMovieCount() {

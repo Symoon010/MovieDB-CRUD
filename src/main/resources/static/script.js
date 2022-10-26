@@ -25,6 +25,12 @@ form.addEventListener('submit',function (e){
         return false;
     }
 
+    if(movieCategory.value == ''){
+        e.preventDefault();
+        showError(movieCategory,'Category  is Required')
+        return false;
+    }
+
     if(movieId.value == ''){
         e.preventDefault();
         showError(movieId,'Movie Id is Required')
@@ -35,7 +41,7 @@ form.addEventListener('submit',function (e){
         showError(movieRating,'Movie Rating is Required')
         return false;
     }
-    if(movieLanguage.value === 'Select Language'){
+    if(movieLanguage.value == 'Select Language'){
         e.preventDefault();
         showError(movieLanguage,'Movie Language is Required')
         return false;
@@ -52,4 +58,12 @@ function updateMovie() {
 function deleteMovie() {
     alert("Movie Delete Successfully");
 }
+function loginAlert() {
+    alert("Login Successfully!");
+}
+function logoutAlert() {
+    alert("Logout Successfully!");
+}
+
+
 

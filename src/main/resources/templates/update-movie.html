@@ -31,28 +31,42 @@
                 </div><!-- /.row -->
             </div><!-- /.container-fluid -->
         </div>
-
         <!-- Main content -->
         <div class="container">
 
-            <form th:action="@{'/update-movie/'+ ${movie.id}}"  th:object="${movie}" method="POST" >
+            <form  th:action="@{'/update-movie/'+ ${movie.id}}"  th:object="${movie}" method="POST" >
                 <div class="form-group">
-                    <label for="movie-name">Movie Name</label>
-                    <input id="movie-name" th:value="${movie.name}" name="name"  type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp"  placeholder="Enter movie name" text="${movie.name}"/>
-                    <label for="movie-category">Movie Category</label>
-                    <input id="movie-category" th:value="${movie.category}" name="category" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Category"/>
-                    <label for="movie-id">Movie ID</label>
-                    <input id="movie-id"th:value="${movie.movieId}" name="movieId" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Id"/>
-                    <label for="movie-rating">Movie Rating</label>
-                    <input id="movie-rating" th:value="${movie.rating}"  name="rating" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Rating"/>
-                    <label for="movie-language">Language</label>
-                    <input id="movie-language" th:value="${movie.language}" name="language" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Language"/>
+                    <div class="form-control-">
+                        <label for="movie-name">Movie Name</label>
+                        <input id="movie-name" th:value="${movie.name}" name="name"  type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp"  placeholder="Enter movie name" text="${movie.name}"/>
+                        <small id="name-error"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="movie-category">Movie Category</label>
+                        <input id="movie-category" th:value="${movie.category}" name="category" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Category"/>
+                        <small id="category-error"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="movie-id">Movie ID</label>
+                        <input id="movie-id"th:value="${movie.movieId}" name="movieId" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Id"/>
+                        <small id="id-error"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="movie-rating">Movie Rating</label>
+                        <input id="movie-rating" th:value="${movie.rating}"  name="rating" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Rating"/>
+                        <small id="rating-error"></small>
+                    </div>
+                    <div class="form-group">
+                        <label for="movie-language">Language</label>
+                        <input id="movie-language" th:value="${movie.language}" name="language" type="text" class="form-control clear-field-by-js" aria-describedby="emailHelp" placeholder="Enter movie Language"/>
+                        <small id="language-error"></small>
+                    </div>
                 </div>
-                <button onclick="updateMovie()" type="submit" class="btn btn-primary">Update</button>
+                <button type="submit" class="btn btn-primary">Update</button>
                 <a th:href="@{/index}" class="btn btn-success">Go back to Home</a>
             </form>
-
         </div>
+
         <aside class="control-sidebar control-sidebar-dark">
             <!-- Control sidebar content goes here -->
         </aside>

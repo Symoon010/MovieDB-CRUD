@@ -8,7 +8,6 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.thymeleaf.dialect.springdata.SpringDataDialect;
 
 @SpringBootApplication
-@EnableJpaRepositories
 public class MovieDbCrudApplication {
 
 

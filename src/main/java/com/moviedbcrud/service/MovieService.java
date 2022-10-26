@@ -39,4 +39,6 @@ public interface MovieService {
     List<Movie> getComedyMovies();
 
     List<Movie> getEnglishMovies();
+    List<Movie> getMovieByCategory(String category);
+
 }
