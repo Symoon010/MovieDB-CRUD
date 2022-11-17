@@ -1,7 +1,3 @@
-const form = document.getElementById('form')
-const adminEmail = document.getElementById('adminEmail')
-const adminPassword = document.getElementById('adminPassword')
-
 function  showError (input,message){
     const formControl = input.parentElement;
     const small = formControl.querySelector('small');
@@ -21,3 +17,7 @@ form.addEventListener('submit',function (e) {
         return false;
     }
 })
+
+const form = document.getElementById('form')
+const adminEmail = document.getElementById('adminEmail')
+const adminPassword = document.getElementById('adminPassword')

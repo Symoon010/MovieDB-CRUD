@@ -1,18 +1,4 @@
 
-const form = document.getElementById('form')
-const movieName = document.getElementById('movie-name')
-const movieCategory = document.getElementById('movie-category')
-const movieId = document.getElementById('movie-id')
-const movieRating = document.getElementById('movie-rating')
-const movieLanguage = document.getElementById('movie-language')
-
-function  showError (input, message){
-    const formControl = input.parentElement;
-    const small = formControl.querySelector('small');
-    small.innerText = message;
-}
-
-
 form.addEventListener('submit',function (e){
     if(movieName.value == ''){
         e.preventDefault();
@@ -63,6 +49,19 @@ function loginAlert() {
 }
 function logoutAlert() {
     alert("Logout Successfully!");
+}
+
+const form = document.getElementById('add-form')
+const movieName = document.getElementById('movie-name')
+const movieCategory = document.getElementById('movie-category')
+const movie_Id = document.getElementById('movie-id')
+const movieRating = document.getElementById('movie-rating')
+const movieLanguage = document.getElementById('movie-language')
+
+function  showError (input, message){
+    const formControl = input.parentElement;
+    const small = formControl.querySelector('small');
+    small.innerText = message;
 }
 
 

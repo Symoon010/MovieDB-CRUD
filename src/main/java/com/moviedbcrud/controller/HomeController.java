@@ -25,9 +25,9 @@ public class HomeController {
     @Autowired
     private MovieService movieService;
 
-    @GetMapping("/login")
+    @GetMapping("/")
     public  String getSignIn(){
-        return "login.html";
+        return "index.html";
     }
 
     @PostMapping("/login")
@@ -128,7 +128,7 @@ public class HomeController {
             return "redirect:/english-movies";
         }
        else{
-            return "redirect:/list-movie";
+            return "redirect:/list-movie.html";
         }
     }
     @GetMapping("/delete/{id}")
